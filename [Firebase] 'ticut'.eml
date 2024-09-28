@@ -1,0 +1,145 @@
+Delivered-To: touhid.iqbal00@gmail.com
+Received: by 2002:a05:6a10:c652:b0:2f4:29e8:6222 with SMTP id z18csp1509862pxt;
+        Sat, 24 Sep 2022 22:56:29 -0700 (PDT)
+X-Received: by 2002:a05:6512:3b8a:b0:499:ac9a:425b with SMTP id g10-20020a0565123b8a00b00499ac9a425bmr6039338lfv.301.1664085389318;
+        Sat, 24 Sep 2022 22:56:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1664085389; cv=none;
+        d=google.com; s=arc-20160816;
+        b=FZjiMoZPgHlKSWAdiknG7gBaf9iMKBEDMyF0rRkIyf6taEy38CVg0qDLPsP03hjq5g
+         5XBLeALYKxDyKqyUzqYZuEXDD90D2/H0yoHnOVTwbJd23rMtWSnuT69okqXwucAA05mr
+         uzax7xRrPgxunMW9RxXLm9W88HP3eJS29r4FKJloyaSDc6DKjLxcp/MNMqXtDJjs90X6
+         hJVUu1izR3b7OCMMOD4xHCjbE5HC9UOsQlvYkwiK0ZYbi+Vph6vS8bKTfLTFC1FFwJE8
+         eitxlO/aS1WQ2XHJ71V04OpzKq4p1jy5RQdN1qQLzYFoiH075vSUpAlyy7sM4aljVT3f
+         Mx2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:date:message-id:mime-version:dkim-signature;
+        bh=linoSOOQ65AoIkMugDF32/BwtkRMqK1mdqb8tQHApu8=;
+        b=WW89Edx0usxx69/pKG1gwhRI8nIn78ob3rMCnSMZOe10gzisnYzhBvUkuBZXto2iFE
+         nAmV3w8qBzdTogCrZ1FxVKEaTEUR8MbVwuFQEhnXSGm9UGSqRGbsED8paWd+3F0VDUDG
+         M0RYfAxHi+JznJpqumzHF0oZSba/d+I4qYd0q+1Kcb4Yoy2UijuoHAWpmb3K65j49H/N
+         11ujxeVC5hG7sfnzzehOltnddLMQDdaVlUW9n1tZW41unQsBs65z8jdfJACs4pI5HYhs
+         AYIlLBvVhHtM/7VsKF9Z5DrwFokbkNxFfrHFm/nPGL22YZj+rNgGBYkqB7XQJC3Tlkze
+         2Ogg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20210112 header.b=asWEvu5L;
+       spf=pass (google.com: domain of 3jo0vyxakdkcor0nkj1n-wx0nyu7pxxpun.lxv2x3qrm.rzkju99pvjru.lxv@firebase.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3jO0vYxAKDkcor0nkj1n-wx0nyu7pxxpun.lxv2x3qrm.rzkju99pvjru.lxv@firebase.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <3jO0vYxAKDkcor0nkj1n-wx0nyu7pxxpun.lxv2x3qrm.rzkju99pvjru.lxv@firebase.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id a4-20020a19e304000000b004973cac826bsor2727063lfh.99.2022.09.24.22.56.29
+        for <touhid.iqbal00@gmail.com>
+        (Google Transport Security);
+        Sat, 24 Sep 2022 22:56:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3jo0vyxakdkcor0nkj1n-wx0nyu7pxxpun.lxv2x3qrm.rzkju99pvjru.lxv@firebase.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20210112 header.b=asWEvu5L;
+       spf=pass (google.com: domain of 3jo0vyxakdkcor0nkj1n-wx0nyu7pxxpun.lxv2x3qrm.rzkju99pvjru.lxv@firebase.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3jO0vYxAKDkcor0nkj1n-wx0nyu7pxxpun.lxv2x3qrm.rzkju99pvjru.lxv@firebase.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=to:from:subject:date:message-id:mime-version:from:to:cc:subject
+         :date;
+        bh=linoSOOQ65AoIkMugDF32/BwtkRMqK1mdqb8tQHApu8=;
+        b=asWEvu5LwsFjSLRHGhZ/H/OyqH2DKvROOhTVBhBoV0EKC6zi1lepXOUhj4YOQysuPk
+         qfA18u/UK+xMhJhSj08k0jn8qMukTK/ozIIwBJ3BKETZz7v0m3zXNku0jJoHH/WQ/tP2
+         to6DDFH77TvAOgXHy25Y/x9Q47+7tQwUbGPfYuaeIuAjiAaFFr7yYAcSJjt4e53JDryl
+         yz6I5ufgA4c4nzcXE8mgoc0h6ZMUaMR+JTu5C9y22tVrABDZ1XXOtFlU5Bvm/2BvOazQ
+         1XYkvOTIn3tMN3Tva9UDbV1vQv1M2v9IjCIyzN09tq1x+Tx49rN+RDt/Ly5FUUgIgGM5
+         t7Sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:from:subject:date:message-id:mime-version:x-gm-message-state
+         :from:to:cc:subject:date;
+        bh=linoSOOQ65AoIkMugDF32/BwtkRMqK1mdqb8tQHApu8=;
+        b=Yi7ICygrAKpBY8ry8Q6msy+m33ySkLwc95RcLFSPfT/GnSO17lnyXm5IRECta3GzKF
+         527UQBVbhF79LSn/KmiDe+e++Lp3ythDjtODxKOyCTdYVZUNi+LFV2SlzApwHU81x77q
+         1Y4Etu9iuLLU2yAn+H8wFsuPpVODkWrukcELSGJbOzELgGjnm65ZT/2evP15HuqV8cVs
+         mgn2UTeBJnWQgPIO6IULW1oPjHJxAuteWqchwIvAJNV2wDL1CpwZ3eWrT1ZwQNGoBdgQ
+         LGnX7e+E6KkS41W3iSE37CcFPDqgHO0NfH6XEsKvWKcCUouqjj3+HCQ9MAp/IDCDA/l8
+         Radw==
+X-Gm-Message-State: ACrzQf042eww27xXQz8Gx273ju5kRGPpof3I+/WttSziweOX3s9z05PS
+	S/7eZP/oPxh6RLKik5oHlM07BKc=
+X-Google-Smtp-Source: AMsMyM4EAJeFoLya/DAQaolc97wVpzRw/1/SgV+hsIPRQ9ptz61wPXTZA9WByZCL1rJyzjoEUgf5X1v8+AFt58Vf
+MIME-Version: 1.0
+X-Received: by 2002:a05:6512:3b97:b0:497:ab81:dcb1 with SMTP id
+ g23-20020a0565123b9700b00497ab81dcb1mr6440255lfv.496.1664085388840; Sat, 24
+ Sep 2022 22:56:28 -0700 (PDT)
+Message-ID: <0000000000007a51b105e97a12f1@google.com>
+Date: Sun, 25 Sep 2022 05:56:28 +0000
+Subject: [Firebase] nosin_ 63 added you as a collaborator on the project 'ticut'
+From: Firebase <firebase-noreply@google.com>
+To: touhid.iqbal00@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000007a519b05e97a12ee"
+
+--0000000000007a519b05e97a12ee
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+nosin_ 63 added you as a collaborator on the project 'ticut'
+
+
+nosin_ 63
+nosinjesin90@gmail.com
+
+
+touhid.iqbal00@gmail.com,
+
+I've given you access to the Firebase project ticut. Learn more about  
+Firebase
+
+
+Open Firebase Console
+
+
+Google
+Google LLC
+1600 Amphitheatre Pkwy
+Mountain View, CA, 94043 USA
+
+
+
+
+--0000000000007a519b05e97a12ee
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><body style=3D"max-width: 800px; font-family: roboto, sans-serif; fon=
+t-weight: 400;"><div style=3D"font-size: 16px; border: 1px solid #DEDEDE;">=
+<div style=3D"text-align: center;"><img src=3D"http://www.gstatic.com/mobil=
+esdk/170418_mobilesdk/emailTemplates/logo_lockup_firebase_horizontal_96dp_2=
+x.png" style=3D"height: 80px; vertical-align: middle;"></div><div><div styl=
+e=3D"padding: 24px 30px 24px 30px; background-color: #039BE5;"><table style=
+=3D"width: 100%; color: #FFFFFF;" cellpadding=3D"0" cellspacing=3D"0"><tr><=
+td><a style=3D"color: #FFFFFF; font-size: 20px; line-height: 24px; text-dec=
+oration: none;">nosin_ 63</a> added you as a collaborator on the project 't=
+icut'</td></tr></table></div><div style=3D"color: #212121; margin: 24px 30p=
+x 10px 30px; font-size: 14px; line-height: 20px;"><div><table style=3D"widt=
+h: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td style=3D"width: 60px;=
+"><img style=3D"-moz-border-radius: 50%; -webkit-border-radius: 50%; border=
+-radius: 50%; height: 48px; width: 48px;" src=3D"https://lh3.googleusercont=
+ent.com/a-/ACNPEu__257kuxwdIUK9rxXjJqCl_jPnc2BvacqZyfc7LQ=3Ds48-c" aria-hid=
+den=3D"true"></td><td><a style=3D"color: #212121; font-size: 16px; text-dec=
+oration: none;">nosin_ 63</a><br><a style=3D"color: #757575; font-size: 14p=
+x; text-decoration: none;">nosinjesin90@gmail.com</a></td><tr></table></div=
+><div style=3D"color: #212121; padding: 24px 0px;"><a style=3D"color: #2121=
+21; text-decoration: none;">touhid.iqbal00@gmail.com</a>,</div><div>I've gi=
+ven you access to the Firebase project <b>ticut</b>. <a target=3D"_blank" h=
+ref=3D"https://firebase.google.com" style=3D"color: #0288D1; text-decoratio=
+n: none; text-decoration: underline;">Learn more about Firebase</a></div><d=
+iv style=3D"padding: 24px 0px 0px 0px;"><div style=3D"padding-left: 30px; f=
+ont-size: 14px; line-height: 16px; padding-top: 12px; padding-bottom: 34px;=
+ text-align: right; font-family: roboto, sans-serif; font-weight: 500;"><a =
+href=3D"https://accounts.google.com/AccountChooser?Email=3Dtouhid.iqbal00@g=
+mail.com&amp;continue=3Dhttps://console.firebase.google.com/project/ticut-f=
+e804/overview" style=3D"text-decoration: none; padding: 12px 12px 12px 12px=
+; border: 0; font-family: roboto, sans-serif; font-weight: 500; text-transf=
+orm: none; letter-spacing: 0.25px; border-radius: 8px; background-color: #0=
+39BE5; color: #FFFFFF;">Open Firebase Console</a></div></div></div><div sty=
+le=3D"background-color: #78909C; padding: 24px; height: 42px;"><table style=
+=3D"width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td><img src=3D"h=
+ttps://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_light_color=
+_74x24dp.png" height=3D"24" width=3D"70" alt=3D"Google"></td><td style=3D"t=
+ext-align: right; padding: 0;"><div style=3D"color: #D6DDE1; line-height: 1=
+4px; font-size: 12px;"><a style=3D"color: #D6DDE1; text-decoration: none;">=
+Google LLC<br>1600 Amphitheatre Pkwy<br>Mountain View, CA, 94043 USA</a></d=
+iv></td></tr></table></div></div></div></body></html>
+--0000000000007a519b05e97a12ee--
